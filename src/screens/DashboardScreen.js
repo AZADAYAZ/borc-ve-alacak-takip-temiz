@@ -195,6 +195,8 @@ export default function DashboardScreen({ navigation }) {
         </View>
       </ScrollView>
 
+      {/* FAB altındaki tam genişlik alt bar (kaydırmada listeyle çakışmayı önler) */}
+      <View style={dash.fabBottomBar} />
       {/* + Butonu */}
       <TouchableOpacity
         style={[dash.fab, { 
@@ -314,6 +316,17 @@ const dash = StyleSheet.create({
     shadowRadius: 3,
   },
   fabText: { color: colors.onPrimary, fontSize: 32, fontWeight: "700" },
+  fabBottomBar: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: spacing.sm,
+    height: 80,
+    backgroundColor: colors.bg,
+    opacity: 0.55,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+  },
   empty: { alignItems: "center", paddingVertical: 60 },
   emptyText: { color: colors.textMuted, fontSize: 16 },
 })

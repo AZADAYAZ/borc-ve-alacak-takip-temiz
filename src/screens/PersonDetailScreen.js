@@ -163,6 +163,8 @@ export default function PersonDetailScreen({ navigation, route }) {
           </View>
         </View>
       </Modal>
+      {/* FAB altındaki tam genişlik alt bar (kaydırmada listeyle çakışmayı önler) */}
+      <View style={det.fabBottomBar} />
       <TouchableOpacity 
         style={det.fab} 
         onPress={() => navigation.navigate('AddEntry', { person: person, type: personType })}
@@ -203,6 +205,17 @@ const det = StyleSheet.create({
   alignItems: 'center',
   elevation: 4,
 },
+  fabBottomBar: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: spacing.sm,
+    height: 72,
+    backgroundColor: colors.bg,
+    opacity: 0.55,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+  },
   fabText: {
     color: colors.onPrimary,
     fontSize: 32,
